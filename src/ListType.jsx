@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function ListType( {title, tasks, onDelete, onChecked, showEdit, onEdit} ) {
     return (
-        <div className="inner-list">
+        <div className="flex flex-col flex-1 min-w-[200px] m-8 p-6 rounded-xl bg-[#0F7173]">
             <h3>{title}</h3>
             <ol>
                 {tasks.map((task) => (
@@ -18,23 +18,18 @@ function ListType( {title, tasks, onDelete, onChecked, showEdit, onEdit} ) {
                         >
                             {task.text}
                         </span>
-                        {/* <button onClick={() => onDelete(task.id)}>Delete</button> */}
                         <Button 
                             text="Delete"
                             onClick={() => onDelete(task.id)}
                             variant="delete"
                         />
                         {showEdit ? (
-                            // <button onClick={() => onEdit(task.id)}>Edit</button>
                             <Button 
                                 text="Edit"
                                 onClick={() => onEdit(task.id)}
                                 variant="edit"
                             />
                         ) : (
-                            // <button onClick={() => onChecked(task.id)}>
-                            //     Move to to-do's
-                            // </button>
                             <Button 
                                 text="Move to To Do"
                                 onClick={() => onChecked(task.id)}

@@ -1,10 +1,10 @@
 // import { useState } from 'react'
 import List from "./List.jsx"
-// import './styles.css'
+import './styles.css'
 
 function App() {
   return (
-    <div>
+    <div className="h-screen flex items-center w-full max-w-7xl mx-auto">
         <List />
     </div>
   )

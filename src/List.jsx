@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ListType from "./ListType.jsx"
-import Button from "./Button.jsx"
+import ListType from "./ListType.jsx";
+import Button from "./Button.jsx";
 
 function List() {
     const [tasks, setTasks] = useState([]);
@@ -64,56 +64,40 @@ function List() {
     }, [tasks]);
 
     return (
-        <div>
-            <h1>New task:</h1>
-            <input
-                type="text"
-                placeholder="Enter a task"
-                value={newTask.text}
-                onChange={handleInputChange}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") addTask();
-                }}
-            />
-            {/* <button onClick={addTask}>{isEditing ? "Save" : "Add"}</button> */}
-            <Button 
-                text={isEditing ? "Save" : "Add"}
-                onClick={addTask}
-                variant="default"
-            />
-            {/* <ul>
-                {tasks.map((task) => (
-                    <li key={task.id}>
-                        <input type="checkbox" onChange={() => toggleChecked(task.id)} />
-                        <span
-                            className="task-text"
-                            style={{ textDecoration: task.completed ? "line-through" : "none" }}
-                        >
-                            Id: {task.id} Text: {task.text}
-                        </span>
-                        <button onClick={() => deleteTask(task.id)}>Delete</button>
-                        <button onClick={() => editTask(task.id)}>Edit</button>
-                    </li>
-                ))}
-            </ul> */}
-            <ListType
-                title="To Do:"
-                tasks={tasksToDo}
-                onDelete={deleteTask}
-                onEdit={editTask}
-                onChecked={toggleChecked}
-                showEdit={true}
-            />
-            <ListType
-                title="Done"
-                tasks={tasksDone}
-                onDelete={deleteTask}
-                onChecked={toggleChecked}
-                showEdit={false}
-            />
+        <div className="bg-lime-300">
+            <div className="task-input">
+                <h1 className="font-molengo text-xl">New task:</h1>
+                <input
+                    type="text"
+                    placeholder="Enter a task"
+                    value={newTask.text}
+                    onChange={handleInputChange}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") addTask();
+                    }}
+                />
+                <Button text={isEditing ? "Save" : "Add"} onClick={addTask} variant="default" />
+            </div>
+
+            <div className="flex gap-4">
+                <ListType
+                    title="To Do:"
+                    tasks={tasksToDo}
+                    onDelete={deleteTask}
+                    onEdit={editTask}
+                    onChecked={toggleChecked}
+                    showEdit={true}
+                />
+                <ListType
+                    title="Done"
+                    tasks={tasksDone}
+                    onDelete={deleteTask}
+                    onChecked={toggleChecked}
+                    showEdit={false}
+                />
+            </div>
         </div>
     );
 }
 
 export default List;
-
