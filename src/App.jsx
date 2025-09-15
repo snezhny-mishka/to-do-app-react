@@ -4,7 +4,7 @@ import './styles.css'
 
 function App() {
   return (
-    <div className="h-screen flex items-center w-full max-w-7xl mx-auto">
+    <div className="flex items-center mx-auto w-full max-w-7xl h-screen">
         <List />
     </div>
   )

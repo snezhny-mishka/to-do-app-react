@@ -65,9 +65,10 @@ function List() {
 
     return (
         <div className="bg-lime-300">
-            <div className="task-input">
-                <h1 className="font-molengo text-xl">New task:</h1>
+            <div className="flex items-center">
+                <label htmlFor="input" className="font-molengo text-xl">New task:</label>
                 <input
+                    id="input"
                     type="text"
                     placeholder="Enter a task"
                     value={newTask.text}
@@ -75,6 +76,7 @@ function List() {
                     onKeyDown={(e) => {
                         if (e.key === "Enter") addTask();
                     }}
+                    className="bg-gray-50 rounded-md h-10"
                 />
                 <Button text={isEditing ? "Save" : "Add"} onClick={addTask} variant="default" />
             </div>
@@ -89,7 +91,7 @@ function List() {
                     showEdit={true}
                 />
                 <ListType
-                    title="Done"
+                    title="Done:"
                     tasks={tasksDone}
                     onDelete={deleteTask}
                     onChecked={toggleChecked}
