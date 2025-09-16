@@ -36,23 +36,72 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                     type="checkbox"
                     checked={task.completed}
                     onChange={() => onChecked(task.id)}
+                    className="w-4 h-4"
                 />
                 {isEditing ? (
                     <>
-                        <input value={draft} onChange={(e) => setDraft(e.target.value)}></input>
-                        <Button
-                            text={<FontAwesomeIcon icon={faFloppyDisk} />}
-                            onClick={handleSave}
+                        <input
+                            value={draft}
+                            onChange={(e) => setDraft(e.target.value)}
+                            className="bg-gray-300 w-3/4 text-xl"
                         />
-                        <Button
-                            text={<FontAwesomeIcon icon={faXmark} />}
-                            onClick={handleCancel}
-                            variant="delete"
-                        />
+                        <div className="flex gap-2">
+                            <Button
+                                text={<FontAwesomeIcon icon={faFloppyDisk} />}
+                                onClick={handleSave}
+                            />
+                            <Button
+                                text={<FontAwesomeIcon icon={faXmark} />}
+                                onClick={handleCancel}
+                                variant="delete"
+                            />
+                        </div>
                     </>
-                ) : task.completed ? (
+                ) : (
                     <>
-                        <span style={{ textDecoration: "line-through" }}>{task.text}</span>
+                        <span className={`text-xl ${task.completed ? "line-through" : ""}`}>
+                            {task.text}
+                        </span>
+                        <div>
+                            {task.completed && (
+                                <Button
+                                    text={<FontAwesomeIcon icon={faTrashCan} />}
+                                    onClick={() => onDelete(task.id)}
+                                    variant="delete"
+                                />
+                            )}
+                            {!task.completed && (
+                                <div className="flex gap-2">
+                                    <Button
+                                        text={<FontAwesomeIcon icon={faPenToSquare} />}
+                                        onClick={handleEdit}
+                                        variant="edit"
+                                    />
+                                    <Button
+                                        text={<FontAwesomeIcon icon={faTrashCan} />}
+                                        onClick={() => onDelete(task.id)}
+                                        variant="delete"
+                                    />
+                                    <Button
+                                        text={<FontAwesomeIcon icon={faCircleUp} />}
+                                        onClick={() => onMoveUp(task.id)}
+                                        disabled={isFirst}
+                                    />
+                                    <Button
+                                        text={<FontAwesomeIcon icon={faCircleDown} />}
+                                        onClick={() => onMoveDown(task.id)}
+                                        disabled={isLast}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )}
+                {/* ) : task.completed ? (
+                    <>
+                        <span style={{ textDecoration: "line-through" }} className="text-xl">
+                            {task.text}
+                        </span>
                         <Button
                             text={<FontAwesomeIcon icon={faTrashCan} />}
                             onClick={() => onDelete(task.id)}
@@ -61,29 +110,31 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                     </>
                 ) : (
                     <>
-                        <span>{task.text}</span>
-                        <Button
-                            text={<FontAwesomeIcon icon={faPenToSquare} />}
-                            onClick={handleEdit}
-                            variant="edit"
-                        />
-                        <Button
-                            text={<FontAwesomeIcon icon={faTrashCan} />}
-                            onClick={() => onDelete(task.id)}
-                            variant="delete"
-                        />
-                        <Button
-                            text={<FontAwesomeIcon icon={faCircleUp} />}
-                            onClick={() => onMoveUp(task.id)}
-                            disabled={isFirst}
-                        />
-                        <Button
-                            text={<FontAwesomeIcon icon={faCircleDown} />}
-                            onClick={() => onMoveDown(task.id)}
-                            disabled={isLast}
-                        />
+                        <span className="text-xl">{task.text}</span>
+                        <div className="flex gap-2">
+                            <Button
+                                text={<FontAwesomeIcon icon={faPenToSquare} />}
+                                onClick={handleEdit}
+                                variant="edit"
+                            />
+                            <Button
+                                text={<FontAwesomeIcon icon={faTrashCan} />}
+                                onClick={() => onDelete(task.id)}
+                                variant="delete"
+                            />
+                            <Button
+                                text={<FontAwesomeIcon icon={faCircleUp} />}
+                                onClick={() => onMoveUp(task.id)}
+                                disabled={isFirst}
+                            />
+                            <Button
+                                text={<FontAwesomeIcon icon={faCircleDown} />}
+                                onClick={() => onMoveDown(task.id)}
+                                disabled={isLast}
+                            />
+                        </div>
                     </>
-                )}
+                )} */}
             </li>
         </div>
     );
