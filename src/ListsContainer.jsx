@@ -75,8 +75,8 @@ function ListsContainer() {
 
     return (
         <div className="flex flex-col gap-4 bg-lime-300 p-8 rounded-2xl w-3/4">
-            <div className="flex justify-center items-center">
-                <label htmlFor="input" className="font-molengo text-xl">
+            <div className="flex justify-center items-center gap-4">
+                <label htmlFor="input" className="text-2xl">
                     New task:
                 </label>
                 <input
@@ -88,12 +88,12 @@ function ListsContainer() {
                     onKeyDown={(e) => {
                         if (e.key === "Enter") addTask();
                     }}
-                    className="bg-gray-50 rounded-md h-10"
+                    className="bg-gray-50 rounded-md w-1/2 h-8"
                 />
                 <Button text="Add" onClick={addTask} />
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-row max-md:flex-col gap-4">
                 <List
                     title="To Do:"
                     tasks={tasks.filter((task) => task.completed === false)}

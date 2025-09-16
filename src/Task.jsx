@@ -30,7 +30,7 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
     }
 
     return (
-        <div>
+        <div className="mt-3">
             <li>
                 <input
                     type="checkbox"
@@ -43,7 +43,7 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                         <input
                             value={draft}
                             onChange={(e) => setDraft(e.target.value)}
-                            className="bg-gray-300 w-3/4 text-xl"
+                            className="bg-gray-300 ml-2 pl-1 rounded-sm w-3/4 text-xl"
                         />
                         <div className="flex gap-2">
                             <Button
@@ -59,10 +59,10 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                     </>
                 ) : (
                     <>
-                        <span className={`text-xl ${task.completed ? "line-through" : ""}`}>
+                        <span className={`text-xl ${task.completed ? "line-through" : ""} pl-2 pr-2`}>
                             {task.text}
                         </span>
-                        <div>
+                        <span>
                             {task.completed && (
                                 <Button
                                     text={<FontAwesomeIcon icon={faTrashCan} />}
@@ -70,8 +70,11 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                                     variant="delete"
                                 />
                             )}
+                            </span>
+                            <div className="flex gap-2">
                             {!task.completed && (
-                                <div className="flex gap-2">
+                                // <div className="flex gap-2">
+                                <>
                                     <Button
                                         text={<FontAwesomeIcon icon={faPenToSquare} />}
                                         onClick={handleEdit}
@@ -92,7 +95,8 @@ function Task({ task, isFirst, isLast, onUpdate, onDelete, onChecked, onMoveUp, 
                                         onClick={() => onMoveDown(task.id)}
                                         disabled={isLast}
                                     />
-                                </div>
+                            </>
+                                // </div>
                             )}
                         </div>
                     </>

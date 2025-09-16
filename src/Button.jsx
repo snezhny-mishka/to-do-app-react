@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const baseStyles = "p-2 m-1 rounded-sm font-semibold active:outline-2 active:outline-offset-2";
+const baseStyles = "p-1 rounded-sm active:outline-2 active:outline-offset-2";
 
 const variants = {
     default: "bg-blue-300 hover:bg-blue-400 active:outline-blue-400",
