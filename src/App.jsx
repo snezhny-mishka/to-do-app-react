@@ -4,7 +4,7 @@ import './styles.css'
 
 function App() {
   return (
-    <div className="flex items-center mx-auto w-full max-w-7xl h-screen">
+    <div className="flex justify-center items-center h-screen">
         <ListsContainer />
     </div>
   )

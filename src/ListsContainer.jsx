@@ -37,7 +37,10 @@ function ListsContainer() {
             if (index === -1) return prev;
 
             const updatedTask = [...prev];
-            [updatedTask[index], updatedTask[index - 1]] = [updatedTask[index - 1], updatedTask[index]];
+            [updatedTask[index], updatedTask[index - 1]] = [
+                updatedTask[index - 1],
+                updatedTask[index],
+            ];
             return updatedTask;
         });
     }
@@ -48,11 +51,13 @@ function ListsContainer() {
             if (index === -1 || index >= prev.length - 1) return prev;
 
             const updatedTask = [...prev];
-            [updatedTask[index], updatedTask[index + 1]] = [updatedTask[index + 1], updatedTask[index]];
+            [updatedTask[index], updatedTask[index + 1]] = [
+                updatedTask[index + 1],
+                updatedTask[index],
+            ];
             return updatedTask;
         });
     }
-
 
     // ---STORAGE---
     // Load tasks from local storage on startup
@@ -69,9 +74,11 @@ function ListsContainer() {
     }, [tasks]);
 
     return (
-        <div className="bg-lime-300">
-            <div className="flex items-center">
-                <label htmlFor="input" className="font-molengo text-xl">New task:</label>
+        <div className="flex flex-col gap-4 bg-lime-300 p-8 rounded-2xl w-3/4">
+            <div className="flex justify-center items-center">
+                <label htmlFor="input" className="font-molengo text-xl">
+                    New task:
+                </label>
                 <input
                     id="input"
                     type="text"

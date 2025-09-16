@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 
 const baseStyles = "p-2 m-1 rounded-sm font-semibold active:outline-2 active:outline-offset-2";
