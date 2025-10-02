@@ -74,9 +74,9 @@ function ListsContainer() {
     }, [tasks]);
 
     return (
-        <div className="flex flex-col gap-4 bg-lime-300 p-8 rounded-2xl w-3/4">
+        <div className="flex flex-col gap-4 bg-dark-brown p-8 rounded-2xl w-3/4">
             <div className="flex justify-center items-center gap-4">
-                <label htmlFor="input" className="text-2xl">
+                <label htmlFor="input" className="text-gray text-lg xxs:text-2xl">
                     New task:
                 </label>
                 <input

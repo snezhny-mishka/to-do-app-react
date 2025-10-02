@@ -4,4 +4,10 @@
 
 @theme {
     --font-molengo: "Molengo", sans-serif;
+    --color-gray: #F2E5D7;
+    --color-light-brown: #C97D60;
+    --color-dark-brown: #63372C;
+    --color-black: #262322;
+    --color-pink: #FACCC7;
+    --breakpoint-xxs: 32.5rem;
 }
